@@ -42,7 +42,7 @@ export default function RegisterPage() {
   const [showPwd, setShowPwd] = useState(false);
   const [agreed, setAgreed] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+  const [otp, setOtp] = useState(["", "", "", ""]);
   const [otpError, setOtpError] = useState("");
   const [countdown, setCountdown] = useState(300);
   const [canResend, setCanResend] = useState(false);
@@ -88,7 +88,7 @@ export default function RegisterPage() {
   const handleOtpChange = (i: number, v: string) => {
     if (!/^\d?$/.test(v)) return;
     const arr = [...otp]; arr[i] = v; setOtp(arr);
-    if (v && i < 5) otpRefs.current[i + 1]?.focus();
+    if (v && i < 3) otpRefs.current[i + 1]?.focus();
   };
 
   const handleOtpKeyDown = (e: React.KeyboardEvent, i: number) => {
@@ -96,7 +96,7 @@ export default function RegisterPage() {
   };
 
   const handleVerifyOtp = () => {
-    if (otp.join("").length < 6) { setOtpError("Please enter all 6 digits"); return; }
+    if (otp.join("").length < 4) { setOtpError("Please enter all 4 digits"); return; }
     router.push("/profile/setup");
   };
 
@@ -255,7 +255,7 @@ export default function RegisterPage() {
             <>
               <button onClick={() => setStep("form")} className="text-muted-foreground text-sm hover:text-foreground mb-4 flex items-center gap-1 font-bold">← Back</button>
               <h1 className="text-foreground text-2xl font-bold mb-1">Verify Your Mobile</h1>
-              <p className="text-muted-foreground text-sm mb-2 font-medium">A 6-digit OTP has been sent to <span className="text-foreground font-black">+91-{mobile}</span></p>
+              <p className="text-muted-foreground text-sm mb-2 font-medium">A 4-digit OTP has been sent to <span className="text-foreground font-black">+91-{mobile}</span></p>
               <p className="text-muted-foreground text-xs mb-8 font-medium">Please check your messages and enter the code below.</p>
 
               <div className="flex gap-3 justify-center mb-4">
@@ -274,7 +274,7 @@ export default function RegisterPage() {
 
               <div className="text-center mb-8">
                 {canResend ? (
-                  <button onClick={() => { setCountdown(300); setCanResend(false); setOtp(["","","","","",""]); }} className="text-primary text-sm hover:underline font-bold">Resend OTP</button>
+                  <button onClick={() => { setCountdown(300); setCanResend(false); setOtp(["","","",""]); }} className="text-primary text-sm hover:underline font-bold">Resend OTP</button>
                 ) : (
                   <p className="text-muted-foreground text-sm font-medium">Resend available in <span className="text-accent font-mono font-black">{formatTime(countdown)}</span></p>
                 )}
@@ -283,7 +283,7 @@ export default function RegisterPage() {
               <Button onClick={handleVerifyOtp} className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-bold text-base shadow-xl">
                 Verify & Continue
               </Button>
-              <p className="text-center text-muted-foreground text-xs mt-4 font-medium italic opacity-70">Demo: Enter any 6 digits to proceed</p>
+              <p className="text-center text-muted-foreground text-xs mt-4 font-medium italic opacity-70">Demo: Enter any 4 digits to proceed</p>
             </>
           )}
         </div>
