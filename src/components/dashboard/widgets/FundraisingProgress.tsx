@@ -25,7 +25,7 @@ const FundraisingProgress = memo(({
   return (
     <div className="bg-card border border-border rounded-2xl p-6 shadow-sm shadow-slate-200/50 dark:shadow-none animate-fadeIn transition-all duration-300">
       <div className="flex items-center justify-between mb-8">
-        <h3 className="text-foreground font-black flex items-center gap-2 uppercase tracking-widest text-[10px] opacity-70">
+        <h3 className="text-foreground font-black flex items-center gap-2 uppercase tracking-widest text-[10px]">
           <TrendingUp size={16} className="text-primary"/> Roadmap
         </h3>
         <Badge variant="outline" className="bg-muted/50 text-muted-foreground border-border text-[9px] font-black tracking-widest uppercase">

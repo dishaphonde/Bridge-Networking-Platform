@@ -33,7 +33,7 @@ const getRoleBadge = (role: UserRole | undefined) => {
 const getNavLinks = (role: UserRole) => {
   return [
     { href: "/dashboard", label: "Dashboard", icon: <LayoutDashboard size={16} /> },
-    { href: "/matches", label: role === "b2b" ? "Discover Partners" : role === "investor" ? "Discover Startups" : "Discover", icon: <Compass size={16} /> },
+    // { href: "/matches", label: role === "b2b" ? "Discover Partners" : "Discover", icon: <Compass size={16} /> },
     { href: "/connections", label: "Connections", icon: <Users size={16} /> },
     { href: "/deal-room", label: role === "investor" ? "Portfolio" : "Deal Room", icon: <Briefcase size={16} /> },
     ...(role !== "b2b" ? [{ href: "#live", label: "Live Pitch", icon: <Radio size={16} /> }] : []),
@@ -63,7 +63,7 @@ const getSidebarLinks = (role: UserRole) => {
   } else if (role === "investor") {
     return [
       ...common,
-      { href: "/discover", label: "Discover Startups", icon: <Compass size={15} /> },
+      // { href: "/discover", label: "Discover Startups", icon: <Compass size={15} /> },
       { href: "/matches", label: "AI Matches", icon: <GitMerge size={15} /> },
       { href: "#live", label: "Live Pitches", icon: <Radio size={15} /> },
       { href: "/deal-room", label: "My Portfolio", icon: <Briefcase size={15} /> },
@@ -72,7 +72,7 @@ const getSidebarLinks = (role: UserRole) => {
   } else {
     return [
       ...common,
-      { href: "/discover", label: "Discover Partners", icon: <Compass size={15} /> },
+      // { href: "/discover", label: "Discover Partners", icon: <Compass size={15} /> },
       { href: "/matches", label: "AI Matches", icon: <GitMerge size={15} /> },
       { href: "/deal-room", label: "Deal Room", icon: <Briefcase size={15} /> },
       ...bottom
@@ -169,11 +169,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-foreground text-[13px] font-black tracking-tight truncate">{user?.name}</p>
-                <p className="text-muted-foreground text-[10px] font-medium truncate opacity-60">{user?.email}</p>
+                <p className="text-muted-foreground text-[10px] font-medium truncate italic">{user?.email}</p>
               </div>
             </div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-muted-foreground text-[9px] font-black uppercase tracking-[0.2em] opacity-60">Profile Strength</span>
+              <span className="text-muted-foreground text-[9px] font-black uppercase tracking-[0.2em]">Profile Strength</span>
               <span className="text-xs font-black" style={{ color: roleColor }}>{completeness}%</span>
             </div>
             <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
@@ -187,10 +187,10 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               return (
                 <Link key={l.label} href={l.href}
                   className={`flex items-center gap-3.5 px-4 py-3 rounded-2xl text-[13px] font-black transition-all group
-                  ${isActive ? "shadow-md" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}
+                  ${isActive ? "shadow-md" : "text-foreground hover:bg-muted"}`}
                   style={isActive ? { backgroundColor: `${roleColor}15`, color: roleColor } : {}}
                 >
-                  <span className={`flex-shrink-0 transition-transform group-hover:scale-110 ${isActive ? "" : "opacity-70 group-hover:opacity-100"}`}>{l.icon}</span>
+                  <span className={`flex-shrink-0 transition-transform group-hover:scale-110 ${isActive ? "" : "group-hover:opacity-100"}`}>{l.icon}</span>
                   <span className="tracking-tight">{l.label}</span>
                 </Link>
               )
@@ -212,7 +212,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
              <div className="p-4 rounded-2xl bg-muted/40 border border-border shadow-inner group">
                 <div className="flex justify-between items-start mb-2">
-                  <p className="text-foreground text-[10px] font-black uppercase tracking-widest opacity-60">Trial</p>
+                  <p className="text-foreground text-[10px] font-black uppercase tracking-widest">Trial</p>
                   <Badge className="bg-primary/20 text-primary border-none text-[8px] font-black px-1.5 py-0.5">{user?.trialDaysLeft || 0}d left</Badge>
                 </div>
                 <Button onClick={logout} variant="ghost" className="w-full h-10 font-bold text-xs uppercase tracking-widest text-red-500/80 hover:text-red-500 hover:bg-red-500/10 rounded-xl transition-all">

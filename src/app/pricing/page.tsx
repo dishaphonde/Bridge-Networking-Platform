@@ -75,13 +75,13 @@ export default function PricingPage() {
         description="Unlock the full power of verified networking on BRIDGE."
         showBack={true}
       >
-        <div className="flex items-center bg-card border border-border p-1 rounded-2xl shadow-sm">
+        <div className="flex items-center bg-card border border-border p-1 rounded-2xl shadow-sm ">
           <button onClick={() => setAnnual(false)}
-            className={`px-4 py-2 rounded-xl text-xs font-black transition-all tracking-tight uppercase ${!annual ? "bg-primary text-white shadow-md shadow-primary/20" : "text-muted-foreground hover:text-foreground"}`}>
+            className={`cursor-pointer px-4 py-2 rounded-xl text-xs font-black transition-all tracking-tight uppercase ${!annual ? "bg-primary text-white shadow-md shadow-primary/20" : "text-muted-foreground hover:text-foreground"}`}>
             Monthly
           </button>
           <button onClick={() => setAnnual(true)}
-            className={`px-4 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 tracking-tight uppercase ${annual ? "bg-primary text-white shadow-md shadow-primary/20" : "text-muted-foreground hover:text-foreground"}`}>
+            className={`cursor-pointer px-4 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 tracking-tight uppercase ${annual ? "bg-primary text-white shadow-md shadow-primary/20" : "text-muted-foreground hover:text-foreground"}`}>
             Annually
             <span className="bg-green-500/20 text-green-500 text-[8px] font-black px-1.5 py-0.5 rounded-full border border-green-500/20">-20%</span>
           </button>

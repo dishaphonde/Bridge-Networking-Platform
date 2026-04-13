@@ -21,7 +21,7 @@ const ActivityFeed = memo(({ activities, title = "Recent Updates" }: ActivityFee
     <Card className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm animate-fadeIn">
       <CardContent className="p-6">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-foreground font-black text-[10px] uppercase tracking-widest opacity-70 flex items-center gap-2">
+          <h3 className="text-foreground font-black text-[10px] uppercase tracking-widest flex items-center gap-2">
             <Activity size={14} className="text-primary"/> {title}
           </h3>
           <span className="text-[8px] font-black uppercase text-muted-foreground bg-muted px-2 py-0.5 rounded-full border border-border">Live</span>
@@ -34,11 +34,11 @@ const ActivityFeed = memo(({ activities, title = "Recent Updates" }: ActivityFee
                 {item.icon || < Zap size={14} className="text-primary"/>}
               </div>
               <div className="flex flex-col gap-0.5">
-                <p className="text-[11px] font-bold text-foreground leading-tight tracking-tight opacity-90 transition-colors group-hover:text-primary">
+                <p className="text-[11px] font-black text-foreground leading-tight tracking-tight transition-colors group-hover:text-primary">
                   {item.text}
                 </p>
                 {item.time && (
-                  <div className="flex items-center gap-1 opacity-40">
+                  <div className="flex items-center gap-1">
                     <Clock size={8}/>
                     <span className="text-[8px] font-black uppercase tracking-widest">{item.time}</span>
                   </div>

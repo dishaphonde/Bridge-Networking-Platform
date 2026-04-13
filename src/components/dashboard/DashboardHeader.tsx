@@ -47,7 +47,7 @@ export default function DashboardHeader({
             {title}
           </h1>
           {description && (
-            <p className="text-muted-foreground text-sm font-medium mt-1 opacity-70">
+            <p className="text-muted-foreground text-sm font-black mt-1">
               {description}
             </p>
           )}

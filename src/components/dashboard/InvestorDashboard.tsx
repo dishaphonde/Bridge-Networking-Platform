@@ -70,7 +70,7 @@ export default function InvestorDashboard({ user }: { user: UserProfile }) {
                <div className="flex justify-between items-center mb-4">
                  <div>
                     <h2 className="text-foreground text-xl font-black flex items-center gap-2 tracking-tight">🤖 Premium AI Matches</h2>
-                    <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.2em] mt-1 opacity-50">Top recommendations based on your thesis</p>
+                    <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.2em] mt-1">Top recommendations based on your thesis</p>
                  </div>
                  <Button variant="ghost" className="text-primary text-[10px] font-black uppercase tracking-widest hover:bg-primary/5">Explore More →</Button>
                </div>
@@ -97,7 +97,7 @@ export default function InvestorDashboard({ user }: { user: UserProfile }) {
                            <Badge className="text-emerald-600 dark:text-emerald-400 font-black tracking-widest text-[9px] bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/10 uppercase">{s.score}% Match</Badge>
                         </div>
                         <h4 className="text-foreground font-black text-sm truncate tracking-tight mb-0.5">{s.name}</h4>
-                        <p className="text-muted-foreground text-[9px] font-black uppercase tracking-widest mb-4 opacity-70">{s.sector}</p>
+                        <p className="text-muted-foreground text-[9px] font-black uppercase tracking-widest mb-4">{s.sector}</p>
                         <p className="text-primary text-[11px] font-black mb-5 tracking-wide italic">{s.ask}</p>
                         <Button className="w-full h-10 text-[10px] font-black uppercase tracking-widest bg-muted text-foreground hover:bg-primary hover:text-white shadow-sm transition-all border-none">View Pipeline</Button>
                      </div>
@@ -112,7 +112,7 @@ export default function InvestorDashboard({ user }: { user: UserProfile }) {
 
             {/* Active Deals Card */}
             <Card className="bg-card border border-border rounded-2xl p-6 shadow-sm">
-               <h3 className="text-foreground font-black text-[10px] uppercase tracking-widest opacity-70 mb-6 flex items-center gap-2">
+               <h3 className="text-foreground font-black text-[10px] uppercase tracking-widest mb-6 flex items-center gap-2">
                  <Briefcase size={14} className="text-primary"/> Active Negotiations
                </h3>
                <div className="space-y-6">
@@ -125,7 +125,7 @@ export default function InvestorDashboard({ user }: { user: UserProfile }) {
                         <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
                            <div className={`h-full ${deal.color} transition-all group-hover:scale-x-105`} style={{ width: deal.stage === "Negotiation" ? "75%" : "40%" }} />
                         </div>
-                        <p className="text-[9px] text-muted-foreground font-bold tracking-widest uppercase opacity-60 mt-1">{deal.stage} · {deal.time}</p>
+                        <p className="text-[9px] text-muted-foreground font-bold tracking-widest uppercase mt-1">{deal.stage} · {deal.time}</p>
                     </div>
                   ))}
                </div>
@@ -135,7 +135,7 @@ export default function InvestorDashboard({ user }: { user: UserProfile }) {
             {/* Thesis Optimization CTA */}
             <div className="bg-primary/5 border border-primary/10 rounded-2xl p-6 text-center hover:bg-primary/10 transition-all cursor-pointer group">
                <h4 className="text-foreground font-black text-xs uppercase tracking-widest mb-2">Thesis Refinement</h4>
-               <p className="text-muted-foreground text-[10px] font-bold mb-4 opacity-70">Updating your investment thesis improves match accuracy by 25%.</p>
+               <p className="text-muted-foreground text-[10px] font-bold mb-4">Updating your investment thesis improves match accuracy by 25%.</p>
                <Button className="w-full h-10 bg-primary text-white font-black text-[9px] uppercase tracking-widest shadow-lg shadow-primary/20 hover:scale-105 transition-all border-none">Update Thesis</Button>
             </div>
          </div>

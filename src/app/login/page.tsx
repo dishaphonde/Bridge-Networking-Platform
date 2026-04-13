@@ -28,14 +28,14 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+  const [otp, setOtp] = useState(["", "", "", ""]);
   const [otpError, setOtpError] = useState("");
   const [countdown, setCountdown] = useState(300);
   const [canResend, setCanResend] = useState(false);
   const otpRefs = useRef<(HTMLInputElement | null)[]>([]);
   // Forgot password state
   const [forgotEmail, setForgotEmail] = useState("");
-  const [forgotOtp, setForgotOtp] = useState(["", "", "", "", "", ""]);
+  const [forgotOtp, setForgotOtp] = useState(["", "", "", ""]);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showNewPwd, setShowNewPwd] = useState(false);
@@ -79,7 +79,7 @@ export default function LoginPage() {
     const arr = [...otpArr];
     arr[i] = v;
     setOtpArr(arr);
-    if (v && i < 5) otpRefs.current[i + 1]?.focus();
+    if (v && i < 3) otpRefs.current[i + 1]?.focus();
   };
 
   const handleOtpKeyDown = (e: React.KeyboardEvent, i: number) => {
@@ -88,8 +88,8 @@ export default function LoginPage() {
 
   const handleVerifyMfa = () => {
     const code = otp.join("");
-    if (code.length < 6) { setOtpError("Please enter all 6 digits"); return; }
-    // Accept any 6-digit OTP for the demo
+    if (code.length < 4) { setOtpError("Please enter all 4 digits"); return; }
+    // Accept any 4-digit OTP for the demo
     login(email, "startup");
   };
 
@@ -199,7 +199,7 @@ export default function LoginPage() {
             <>
               <button onClick={() => setStep("credentials")} className="text-muted-foreground text-sm hover:text-foreground mb-4 flex items-center gap-1">← Back</button>
               <h1 className="text-foreground text-2xl font-bold mb-1">Verify your identity</h1>
-              <p className="text-muted-foreground text-sm mb-6">Enter the 6-digit OTP sent to your registered mobile number.</p>
+              <p className="text-muted-foreground text-sm mb-6">Enter the 4-digit OTP sent to your registered mobile number.</p>
 
               <div className="flex gap-2 justify-center mb-4">
                 {otp.map((digit, i) => (
@@ -232,7 +232,7 @@ export default function LoginPage() {
               <Button onClick={handleVerifyMfa} className="w-full h-11 bg-primary hover:bg-primary/90 text-white font-semibold">
                 Verify & Sign In
               </Button>
-              <p className="text-muted-foreground text-xs text-center mt-3">Demo: Enter any 6 digits to proceed</p>
+              <p className="text-muted-foreground text-xs text-center mt-3">Demo: Enter any 4 digits to proceed</p>
             </>
           )}
 
@@ -255,11 +255,11 @@ export default function LoginPage() {
             <>
               <button onClick={() => setStep("forgotEmail")} className="text-muted-foreground text-sm hover:text-foreground mb-4 flex items-center gap-1">← Back</button>
               <h1 className="text-foreground text-2xl font-bold mb-1">Enter OTP</h1>
-              <p className="text-muted-foreground text-sm mb-6">A 6-digit code was sent to your email/mobile.</p>
+              <p className="text-muted-foreground text-sm mb-6">A 4-digit code was sent to your email/mobile.</p>
               <div className="flex gap-2 justify-center mb-4">
                 {forgotOtp.map((digit, i) => (
                   <input key={i} type="text" inputMode="numeric" maxLength={1} value={digit}
-                    onChange={(e) => { if (!/^\d?$/.test(e.target.value)) return; const arr=[...forgotOtp]; arr[i]=e.target.value; setForgotOtp(arr); if(e.target.value && i<5) otpRefs.current[i+1]?.focus(); }}
+                    onChange={(e) => { if (!/^\d?$/.test(e.target.value)) return; const arr=[...forgotOtp]; arr[i]=e.target.value; setForgotOtp(arr); if(e.target.value && i<3) otpRefs.current[i+1]?.focus(); }}
                     onKeyDown={(e) => { if(e.key==="Backspace"&&!forgotOtp[i]&&i>0) otpRefs.current[i-1]?.focus(); }}
                     ref={(el) => { otpRefs.current[i] = el; }}
                     className="w-11 h-12 text-center text-foreground text-xl font-bold bg-input border-2 border-input-border rounded-xl focus:border-primary focus:outline-none"
@@ -270,7 +270,7 @@ export default function LoginPage() {
                 {canResend ? <button onClick={() => { setCountdown(300); setCanResend(false); }} className="text-primary hover:underline">Resend OTP</button>
                 : <>Expires in <span className="text-accent font-mono font-semibold">{formatTime(countdown)}</span></>}
               </p>
-              <Button onClick={() => setStep("forgotReset")} className="w-full h-11 bg-primary hover:bg-primary/90 text-white font-semibold" disabled={forgotOtp.join("").length < 6}>
+              <Button onClick={() => setStep("forgotReset")} className="w-full h-11 bg-primary hover:bg-primary/90 text-white font-semibold" disabled={forgotOtp.join("").length < 4}>
                 Verify OTP
               </Button>
             </>

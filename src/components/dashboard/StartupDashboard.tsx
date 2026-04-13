@@ -86,7 +86,7 @@ export default function StartupDashboard({ user }: { user: UserProfile }) {
       {isTrial && !bannerDismissed && (
         <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 shadow-sm">
           <p className="text-amber-600 dark:text-amber-400 text-sm flex items-center gap-2 font-medium">
-            <Clock size={14}/> Your Discovery Trial ends in <strong>{user.trialDaysLeft} days</strong>. Upgrade to keep matches.
+            <Clock size={14}/> Your Discovery Trial ends in <strong>{user.trialDaysLeft} days</strong>. Upgrade to connect and scale.
           </p>
           <div className="flex gap-2 shrink-0">
             <Button onClick={() => setUpgradeModalOpen(true)} className="bg-amber-500 text-white dark:text-background hover:bg-amber-400 h-7 text-xs font-bold px-3 shadow-md border-none">Upgrade Now</Button>
@@ -121,7 +121,7 @@ export default function StartupDashboard({ user }: { user: UserProfile }) {
                <div className="flex justify-between items-center mb-4">
                  <div>
                     <h2 className="text-foreground text-xl font-black flex items-center gap-2 tracking-tight">🤖 Premium AI Matches</h2>
-                    <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.2em] mt-1 opacity-50">Recommended for your thesis</p>
+                    <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.2em] mt-1">Recommended for your thesis</p>
                  </div>
                  <Link href="/connections" className="text-primary text-[10px] font-black uppercase tracking-widest hover:underline decoration-2">View All →</Link>
                </div>
@@ -143,7 +143,7 @@ export default function StartupDashboard({ user }: { user: UserProfile }) {
             
             {/* Active Deals Card (Brief) */}
             <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
-               <h3 className="text-foreground font-black text-[10px] uppercase tracking-widest opacity-70 mb-6 flex items-center gap-2">
+               <h3 className="text-foreground font-black text-[10px] uppercase tracking-widest mb-6 flex items-center gap-2">
                  <Briefcase size={14} className="text-primary"/> Active Pipelines
                </h3>
                <div className="space-y-4">
@@ -165,7 +165,7 @@ export default function StartupDashboard({ user }: { user: UserProfile }) {
             {/* Profile Completion CTA */}
             <div className="bg-primary/5 border border-primary/10 rounded-2xl p-6 text-center hover:bg-primary/10 transition-all cursor-pointer group">
                <h4 className="text-foreground font-black text-xs uppercase tracking-widest mb-2">Refine Profile</h4>
-               <p className="text-muted-foreground text-[10px] font-bold mb-4 opacity-70">Complete your profile to increase match accuracy by 40%.</p>
+               <p className="text-muted-foreground text-[10px] font-bold mb-4">Complete your profile to increase match accuracy by 40%.</p>
                <Button variant="outline" className="w-full h-10 bg-transparent border-primary/20 text-primary font-black text-[9px] uppercase tracking-widest group-hover:bg-primary group-hover:text-white transition-all">Update Now</Button>
             </div>
          </div>

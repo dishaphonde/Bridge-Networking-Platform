@@ -25,7 +25,7 @@ const PitchTimeline = memo(({ pitches, title = "Session History" }: PitchTimelin
     <Card className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm animate-fadeIn">
       <CardContent className="p-6">
         <div className="flex items-center justify-between mb-8">
-           <h3 className="text-foreground font-black text-[10px] uppercase tracking-widest opacity-70 flex items-center gap-2">
+           <h3 className="text-foreground font-black text-[10px] uppercase tracking-widest flex items-center gap-2">
               <Video size={14} className="text-primary"/> {title}
            </h3>
            <Badge variant="outline" className="bg-muted/50 text-muted-foreground border-border text-[8px] font-black tracking-widest uppercase">
@@ -50,7 +50,7 @@ const PitchTimeline = memo(({ pitches, title = "Session History" }: PitchTimelin
                         <span className="text-[8px] font-black uppercase text-amber-500 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/10">Coming Soon</span>
                      )}
                   </div>
-                  <p className="text-muted-foreground text-[9px] font-black uppercase tracking-widest opacity-60">
+                  <p className="text-muted-foreground text-[9px] font-black uppercase tracking-widest">
                     Host: {p.name} {p.sector ? `· ${p.sector}` : ""}
                   </p>
                   <div className="flex items-center gap-3 pt-1">
@@ -67,7 +67,7 @@ const PitchTimeline = memo(({ pitches, title = "Session History" }: PitchTimelin
                         </div>
                      )}
                      {p.duration && (
-                        <div className="flex items-center gap-1 opacity-40">
+                        <div className="flex items-center gap-1">
                           <Clock size={8}/>
                           <span className="text-[8px] font-black uppercase tracking-widest">{p.duration}</span>
                         </div>

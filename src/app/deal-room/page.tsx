@@ -42,7 +42,7 @@ export default function DealRoomPage() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-3 w-full pt-4">
+        <div className="flex lg:flex-col sm:flex-row items-center gap-3 w-full pt-4">
           <Button 
             variant="outline" 
             onClick={() => router.push("/kyc")} 

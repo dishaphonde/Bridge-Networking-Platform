@@ -42,7 +42,7 @@ export default function MatchesPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {matchTeasers.map((m, i) => (
           <div key={i} className="group relative rounded-3xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300">
-            <div className="p-6 filter blur-md select-none pointer-events-none opacity-40 grayscale translate-y-2 group-hover:blur-sm transition-all">
+            <div className="p-6 transition-all">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-lg transform rotate-3">
                   <span className="text-white font-black text-xl">{m.name[0]}</span>
@@ -68,16 +68,7 @@ export default function MatchesPage() {
               </div>
             </div>
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-background/40 backdrop-blur-[1px] flex flex-col items-center justify-center gap-4 z-10">
-              <div className="w-16 h-16 rounded-3xl bg-card border-2 border-primary/20 flex items-center justify-center shadow-2xl shadow-primary/20 transform hover:scale-110 active:scale-95 transition-all">
-                <Lock size={24} className="text-primary animate-pulse" />
-              </div>
-              <div className="text-center px-6">
-                <p className="text-foreground text-[10px] font-black uppercase tracking-[0.2em] mb-2 opacity-60">Profile Hidden</p>
-                <p className="text-muted-foreground text-[10px] font-bold leading-normal uppercase tracking-widest opacity-80">Requires Premium & KYC Verification</p>
-              </div>
-            </div>
+            {/* Overlay removed for free exploration */}
           </div>
         ))}
       </div>
@@ -92,7 +83,7 @@ export default function MatchesPage() {
           </div>
           <h3 className="text-foreground font-black text-2xl uppercase tracking-tighter mb-2">Ready to pitch?</h3>
           <p className="text-muted-foreground text-sm font-medium mb-8 max-w-sm mx-auto opacity-70">
-            Unblurred profiles, direct messaging, and priority KYC status are just one click away.
+            Prioritized networking, direct messaging, and priority KYC status are just one click away.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-3 justify-center">
             <Link href="/kyc" className="w-full sm:w-auto">

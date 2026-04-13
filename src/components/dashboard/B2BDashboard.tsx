@@ -66,7 +66,7 @@ export default function B2BDashboard({ user }: { user: UserProfile }) {
                <div className="flex justify-between items-center mb-6">
                  <div>
                     <h2 className="text-foreground text-xl font-black flex items-center gap-2 tracking-tight">🤖 Smart B2B Matches</h2>
-                    <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.2em] mt-1 opacity-50">Recommended industrial synergies</p>
+                    <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.2em] mt-1">Recommended industrial synergies</p>
                  </div>
                </div>
                
@@ -112,7 +112,7 @@ export default function B2BDashboard({ user }: { user: UserProfile }) {
 
             {/* Active Deals Card */}
             <Card className="bg-card border border-border rounded-2xl p-6 shadow-sm">
-               <h3 className="text-foreground font-black text-[10px] uppercase tracking-widest opacity-70 mb-6 flex items-center gap-2">
+               <h3 className="text-foreground font-black text-[10px] uppercase tracking-widest mb-6 flex items-center gap-2">
                  <Briefcase size={14} className="text-primary"/> Ongoing Negotiations
                </h3>
                <div className="space-y-6">

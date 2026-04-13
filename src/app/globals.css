@@ -50,7 +50,7 @@
 /* Light Mode Tokens (Default) */
 :root {
   --background: #F8FAFC;
-  --foreground: #0F172A;
+  --foreground: #000000;
   --card: #FFFFFF;
   --card-foreground: #0F172A;
   --popover: #FFFFFF;
@@ -60,7 +60,7 @@
   --secondary: #F1F5F9;
   --secondary-foreground: #0F172A;
   --muted: #F1F5F9;
-  --muted-foreground: #64748B;
+  --muted-foreground: #000000;
   --accent: #F4A91F;
   --accent-foreground: #0F172A;
   --destructive: #EF4444;
@@ -70,7 +70,7 @@
   --input-border: #CBD5E1;
   --ring: #1D6FF2;
   --sidebar: #F8FAFC;
-  --sidebar-foreground: #64748B;
+  --sidebar-foreground: #0F172A;
   --sidebar-primary: #1D6FF2;
   --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent: #F1F5F9;

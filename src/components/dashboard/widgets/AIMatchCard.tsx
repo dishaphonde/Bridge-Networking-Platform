@@ -31,17 +31,7 @@ const AIMatchCard = memo(({
   
   return (
     <Card className="bg-card shadow-sm hover:shadow-xl hover:border-primary/20 transition-all rounded-3xl border border-border group relative overflow-hidden">
-      {isTrial && (
-        <div className="absolute inset-0 z-10 bg-white/40 dark:bg-background/40 backdrop-blur-[8px] flex flex-col items-center justify-center p-4 transition-all duration-300">
-          <Button 
-            onClick={onUpgrade} 
-            size="sm" 
-            className="bg-foreground text-background dark:bg-white dark:text-[#0F1B2D] hover:opacity-90 font-black text-[10px] px-5 h-9 rounded-full flex items-center gap-2 shadow-2xl transition-all active:scale-95 uppercase tracking-widest"
-          >
-            <Lock size={12} className="text-primary"/> UNLOCK MATCH
-          </Button>
-        </div>
-      )}
+      {/* Blur removed for Discovery Phase */}
       <CardContent className="p-5">
         <div className="flex justify-between items-start mb-4">
           <div className="flex gap-3">
@@ -51,11 +41,11 @@ const AIMatchCard = memo(({
             <div>
               <div className="flex items-center gap-1.5 mb-0.5">
                 <p className="font-black text-foreground text-sm tracking-tight">
-                  {isTrial ? `${name.split(" ")[0]} M.` : name}
+                  {name}
                 </p>
-                {!isTrial && <CheckCircle2 size={10} className="text-emerald-500"/>}
+                <CheckCircle2 size={10} className="text-emerald-500"/>
               </div>
-              <p className="text-muted-foreground text-[10px] font-black uppercase tracking-wider opacity-60">
+              <p className="text-muted-foreground text-[10px] font-black uppercase tracking-wider">
                 {role}
               </p>
             </div>
